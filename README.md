@@ -1,6 +1,15 @@
 # sumry-fireworks
 
-[![Fireworks](http://lab.aerotwist.com/canvas/fireworks/capture.png)](http://lab.aerotwist.com/canvas/fireworks/)
+Stolen from Paul Lewis because he's awesome and I can't be bothered writing fireworks. Basically:
 
-Everyone loves them, and now you can make them with HTML5's canvas tag. This is the code from the tutorial I put
-together for [CreativeJS](http://creativejs.com/), and you can see the final effect [here](http://lab.aerotwist.com/canvas/fireworks/).
+
+```html
+<div id="library">
+  <img src="images/big-glow.png" id="big-glow" />
+  <img src="images/small-glow.png" id="small-glow" />
+</div>
+
+<script src="js/requestanimframe.js"></script>
+<script src="js/fireworks.js"></script>
+<script>Fireworks.initialize();</script>
+```

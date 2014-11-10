@@ -56,8 +56,10 @@ var Fireworks = (function() {
 
     // add the canvas in
     document.body.appendChild(mainCanvas);
-    document.addEventListener('mouseup', createFirework, true);
-    document.addEventListener('touchend', createFirework, true);
+
+    setInterval(function() {
+        createFirework();
+    }, 1200);
 
     // and now we set off
     update();
@@ -90,7 +92,7 @@ var Fireworks = (function() {
       var gridX = marker % size;
       var gridY = Math.floor(marker / size) * gridSize;
 
-      fireworkContext.fillStyle = "hsl(" + Math.round(c * 3.6) + ",100%,60%)";
+      fireworkContext.fillStyle = "#00BD9C";
       fireworkContext.fillRect(gridX, gridY, gridSize, gridSize);
       fireworkContext.drawImage(
         Library.bigGlow,
@@ -122,7 +124,7 @@ var Fireworks = (function() {
    * black. The bonus of this is the trails effect we get
    */
   function clearContext() {
-    mainContext.fillStyle = "rgba(0,0,0,0.2)";
+    mainContext.fillStyle = "rgba(39, 53, 63, 1)";
     mainContext.fillRect(0, 0, viewportWidth, viewportHeight);
   }
 
@@ -433,9 +435,4 @@ var FireworkExplosions = {
 
   }
 
-};
-
-// Go
-window.onload = function() {
-  Fireworks.initialize();
 };
