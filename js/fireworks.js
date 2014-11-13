@@ -20,7 +20,7 @@
  * THE SOFTWARE.
  */
 
-var Fireworks = (function() {
+var Fireworks = (function () {
 
   // declare the variables we need
   var particles = [],
@@ -94,8 +94,10 @@ var Fireworks = (function() {
 
       fireworkContext.fillStyle = "#00BD9C";
       fireworkContext.fillRect(gridX, gridY, gridSize, gridSize);
+      var bigGlow = new Image();
+      bigGlow.src = Library.bigGlow;
       fireworkContext.drawImage(
-        Library.bigGlow,
+        bigGlow,
         gridX,
         gridY);
     }
@@ -316,7 +318,10 @@ Particle.prototype = {
     context.drawImage(fireworkCanvas,
       this.gridX, this.gridY, 12, 12,
       x - 6, y - 6, 12, 12);
-    context.drawImage(Library.smallGlow, x - 3, y - 3);
+
+    var smallGlow = new Image();
+    smallGlow.src = Library.smallGlow;
+    context.drawImage(smallGlow, x - 3, y - 3);
 
     context.restore();
   }
@@ -328,8 +333,8 @@ Particle.prototype = {
  * we want to reference later on
  */
 var Library = {
-  bigGlow: document.getElementById('big-glow'),
-  smallGlow: document.getElementById('small-glow')
+  bigGlow: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABZ0RVh0Q3JlYXRpb24gVGltZQAyNi8xMi8xMcZdNcsAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzVxteM2AAAAw0lEQVQokZXSQUvDQBAF4K8SUgjBSCiFQo89+f9/izfRQ0CQElRCoSWgl7cQcxH3Mrvz5s28mdkNvv3jVKv3DWdMmIO32KFeE74w4B2fIdfo8IEj7qtF5gGvsSOu2KLHJXGnQjgn84AXvCWowSExDR4KYYqMMcHPuffBu+DTXRxzZF2TecRT7CX+G+ZCqNLgNqV7PMY28deoiqQ2ZfuF5sOihz54Wwi7jK5Mo1tN6Yg9doVQx1mmsd7DPni98ftr/LnpH5OqNW1n169XAAAAAElFTkSuQmCC',
+  smallGlow: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABZ0RVh0Q3JlYXRpb24gVGltZQAyNi8xMi8xMcZdNcsAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzVxteM2AAAATUlEQVQImV3MPQ2AMBQE4K+EnaUOcFAROEAlTjohoDioh7K8JoRbLveb/DDGACnEhoKMjrpGseDAjgeWCHKYZ3CeQY/mFdzmVf0sG+4XEhkRBqSyQ+IAAAAASUVORK5CYII='
 };
 
 /**
