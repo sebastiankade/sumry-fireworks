@@ -1,4 +1,4 @@
-canvas {
+.signup canvas {
     -webkit-transform: translateZ(0);
     position: fixed;
     top: 0;
@@ -7,6 +7,6 @@ canvas {
     z-index: -1;
 }
 
-#library {
+.signup #library {
   display: none;
 }
